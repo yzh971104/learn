@@ -7,10 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        
-    </div>
-
+    <!-- 
+        新的属性：methods ，该属性用于在Vue对象中定义方法
+        新的指令：@click，该指令用于监听某个元素的点击事件，并且需要指定当发生点击时，执行的方法
+            （方法通常methods中定义的方法）
+        @click中@是  语法糖：简写
+     -->
     <div id="app">
         <h2>当前计数：{{content}}</h2>
         <!-- <button v-on:click="content++">+</button>
@@ -18,9 +20,9 @@
         <button v-on:click="increment">+</button>
         <button @click="decrement">-</button>
     </div>
-    
     <script src="../js/vue.js"></script>
     <script>
+        // proxy    使用this.局域变量在作用域内找
         const app = new Vue({
             el:'#app',
             data:{
@@ -37,6 +39,8 @@
                 }
             }
         })
+        //1、拿button元素
+        //2、添加监听事件
     </script>
 </body>
 </html>
