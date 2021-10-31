@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    前面的内容都是将值插入到我们模板的内容当中
+    但是除了内容需要动态来决定外，某些属性我们也希望动态来绑定
+      比如动态绑定a元素的herf属性
+      比如动态绑定img元素的src属性
+    这个时候，我们可以使用v-bind指令
+      作用：动态绑定属性
+      缩写：：
+      预期：any（with argument）|Object（without argument）
+      参数：attrOrProp（optional）
+   --> 
+  <div id='app'>
+    <img v-bind:src="VueLogUrl" alt="">
+    <!-- // 语法糖的写法：：-->
+    <a ::href="link">Vue官网</a>
+  </div>
+  
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        VueLogUrl:'https://cn.vuejs.org/images/logo.svg',
+        link:'https://vuejs.org'
+      }
+    })
+  </script>
+</body>
+</html>

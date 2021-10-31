@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <!-- 直接拼接：语法过于繁琐 -->
+    <h2>{{firstName}} {{lastName}}</h2>
+    <!-- 通过定义methods多次使用多次调用 -->
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <!-- 通过computed多次使用调用一次 -->
+    <h2>{{fullname}}</h2>
+    <h2>{{fullname}}</h2>
+    <h2>{{fullname}}</h2>
+  </div>
+  
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        fristName:'你好啊',
+        lastName:'你好啊'
+      },
+      methods:{
+        getFullName:function(){
+          console.log('getFullName');
+          return this.fristName + ' ' + this.lastName
+        }
+      },
+      computed:{
+        fullname:function(){
+          console.log('getFullName');
+          return this.fristName + ' ' + this.lastName
+        }
+      }
+    })
+  </script>
+</body>
+</html>

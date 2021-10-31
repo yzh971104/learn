@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    在某些情况下我们浏览器可能会直接显示出来未编译的 Mustache 标签
+    setTimeout(function(){},1000)延时执行一秒钟
+   -->
+  <div id='app' v-cloak> 
+    <h2>{{message}}</h2>
+    <h2>{{message}}</h2>
+  </div>
+  
+  <script src='../js/vue.js'></script>
+  <script>
+    //在vue解析之前，div中有一个属性v-cloak
+    //在vue解析之后，div中没有一个属性v-cloak
+    setTimeout(function(){ 
+      const app = new Vue({
+        el:'#app',
+        data:{
+          message:'你好啊'
+        }
+      })
+    },1000)
+  </script>
+</body>
+</html>

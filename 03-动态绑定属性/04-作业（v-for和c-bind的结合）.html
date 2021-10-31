@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active{
+      color:red;
+    }
+    [v-cloak]{
+      color: none;
+    }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <div v-on:click="btnClick(index)" v-bind:class="{active:index==isActive}" v-for="(item,index) in movies" v-cloak>
+      {{index + 1}} - {{item}}
+    </div>
+  </div>
+  
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        message:'你好啊',
+        isActive:0,
+        movies:['火影忍者', '海贼王', '进击的巨人', '海尔兄弟']
+      },
+      methods:{
+        btnClick:function(index){
+          this.isActive = index;
+        }
+      }
+      
+    })
+  </script>
+</body>
+</html>
